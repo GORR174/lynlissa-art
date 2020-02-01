@@ -3,8 +3,6 @@ package ru.catstack.lynlissaart.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.marginBottom
-import androidx.core.view.marginEnd
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
