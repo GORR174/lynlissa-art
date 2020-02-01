@@ -1,6 +1,7 @@
 package ru.catstack.lynlissaart.data.api.deviantart
 
 import okhttp3.ResponseBody
+import org.jsoup.Jsoup
 import org.w3c.dom.Element
 import retrofit2.Converter
 import retrofit2.Retrofit
@@ -30,17 +31,39 @@ class DeviantResponseConverterFactory : Converter.Factory() {
             for (i in 0 until items.length) {
                 val item = items.item(i) as Element
 
-                val titleElement = item.getElementsByTagName("title").item(0) as Element
-                val title = titleElement.textContent
+                val currentArt = getArtByItemElement(item)
 
-                val urlElement = item.getElementsByTagName("media:content").item(0) as Element
-                val url = urlElement.getAttribute("url")
-
-                response.arts.add(Art(title, url))
+                response.arts.add(currentArt)
             }
 
             return response
         }
 
+        private fun getArtByItemElement(item: Element): Art {
+            val title = getTitleByItemElement(item)
+            val url = getUrlByItem(item)
+            val description = getDescriptionByItem(item)
+
+            return Art(title, url, description)
+        }
+
+        private fun getTitleByItemElement(item: Element): String {
+            val titleElement = item.getElementsByTagName("title").item(0) as Element
+
+            return titleElement.textContent
+        }
+
+        private fun getUrlByItem(item: Element): String {
+            val urlElement = item.getElementsByTagName("media:content").item(0) as Element
+
+            return urlElement.getAttribute("url")
+        }
+
+        private fun getDescriptionByItem(item: Element): String {
+            val descriptionElement = item.getElementsByTagName("media:description").item(0) as Element
+            val text = descriptionElement.textContent
+
+            return Jsoup.parse(text).text()
+        }
     }
 }
