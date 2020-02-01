@@ -6,6 +6,7 @@ import org.kodein.di.generic.instance
 object KodeinInstance {
     val kodein = Kodein {
         import(appModule)
+        import(networkModule)
     }
 
     inline fun <reified T : Any> instance() = kodein.instance<T>()
