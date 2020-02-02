@@ -43,25 +43,50 @@ class MainFragment : Fragment() {
             }
         }
 
+        viewModel.state.observe(this) {
+            setState(it)
+        }
+
+        retryButton.setOnClickListener {
+            viewModel.loadImages()
+        }
+
         viewModel.loadImages()
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-
-        outState.putBoolean("notFirst", true)
+    private fun setState(state: MainViewModel.MainState) {
+        when (state) {
+            MainViewModel.MainState.LOADING -> {
+                setMainVisibility(false)
+                setOnErrorVisibility(false)
+                setLoadingVisibility(true)
+            }
+            MainViewModel.MainState.ERROR -> {
+                setMainVisibility(false)
+                setOnErrorVisibility(true)
+                setLoadingVisibility(false)
+            }
+            MainViewModel.MainState.LOADED -> {
+                setMainVisibility(true)
+                setOnErrorVisibility(false)
+                setLoadingVisibility(false)
+            }
+        }
     }
 
-//    private var lastFirstVisiblePosition: Int = 0
-//    override fun onPause() {
-//        super.onPause()
-//        lastFirstVisiblePosition = (recyclerView.layoutManager as GridLayoutManager).findFirstCompletelyVisibleItemPosition()
-//    }
-//
-//    override fun onResume() {
-//        super.onResume()
-//
-//        recyclerView.scrollToPosition(lastFirstVisiblePosition)
-//        lastFirstVisiblePosition = 0
-//    }
+    private fun setMainVisibility(isVisible: Boolean) {
+        val visibility = if (isVisible) View.VISIBLE else View.GONE
+        recyclerView.visibility = visibility
+    }
+
+    private fun setLoadingVisibility(isVisible: Boolean) {
+        val visibility = if (isVisible) View.VISIBLE else View.GONE
+        loadingBar.visibility = visibility
+    }
+
+    private fun setOnErrorVisibility(isVisible: Boolean) {
+        val visibility = if (isVisible) View.VISIBLE else View.GONE
+        retryButton.visibility = visibility
+        errorMessage.visibility = visibility
+    }
 }

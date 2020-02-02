@@ -4,6 +4,7 @@
     <string name="gallery_fragment_name">Lynlissa art gallery</string>
     <string name="art_fragment_name">Lynlissa art</string>
 
-    <string name="loading_error">load failed :(</string>
+    <string name="loading_error">Loading failed :(\nCheck your internet connection.</string>
+    <string name="retry_button">Retry</string>
     <string name="description">Description:</string>
 </resources>

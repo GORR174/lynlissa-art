@@ -13,9 +13,25 @@ class MainViewModel(private val repository: UserGalleryRepo) : ViewModel() {
     val arts: LiveData<ArrayList<Art>>
     get() = mutableArts
 
+    private val mutableState = MutableLiveData<MainState>(MainState.LOADING)
+    val state: LiveData<MainState>
+        get() = mutableState
+
     fun loadImages() {
-        repository.getUserGallery(userName) {
-            mutableArts.postValue(it)
+        mutableState.postValue(MainState.LOADING)
+        repository.getUserGallery(userName) { arts, isSuccessful ->
+            if (isSuccessful) {
+                mutableArts.postValue(arts)
+                mutableState.postValue(MainState.LOADED)
+            } else {
+                mutableState.postValue(MainState.ERROR)
+            }
         }
+    }
+
+    enum class MainState {
+        LOADING,
+        ERROR,
+        LOADED,
     }
 }
