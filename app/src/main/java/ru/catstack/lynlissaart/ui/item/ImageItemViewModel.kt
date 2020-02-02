@@ -1,4 +1,4 @@
-package ru.catstack.lynlissaart
+package ru.catstack.lynlissaart.ui.item
 
 import androidx.lifecycle.ViewModel
 

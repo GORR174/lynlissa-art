@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="ru.catstack.lynlissaart.ui.main.MainFragment"
-        android:label="main_fragment"
+        android:label="@string/gallery_fragment_name"
         tools:layout="@layout/main_fragment" >
         <action
             android:id="@+id/action_mainFragment_to_imageItemFragment"
@@ -17,9 +17,9 @@
     </fragment>
     <fragment
         android:id="@+id/imageItemFragment"
-        android:name="ru.catstack.lynlissaart.ImageItemFragment"
-        android:label="image_item_fragment"
-        tools:layout="@layout/image_item_fragment" >
+        android:name="ru.catstack.lynlissaart.ui.item.ImageItemFragment"
+        android:label="@string/art_fragment_name"
+        tools:layout="@layout/image_item_fragment">
         <argument
             android:name="artItem"
             app:argType="ru.catstack.lynlissaart.domain.Art" />

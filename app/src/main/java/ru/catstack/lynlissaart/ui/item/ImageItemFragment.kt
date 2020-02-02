@@ -1,4 +1,4 @@
-package ru.catstack.lynlissaart
+package ru.catstack.lynlissaart.ui.item
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -12,6 +12,7 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import kotlinx.android.synthetic.main.image_item_fragment.*
+import ru.catstack.lynlissaart.R
 import ru.catstack.lynlissaart.di.KodeinInstance
 
 
@@ -28,7 +29,9 @@ class ImageItemFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val art = ImageItemFragmentArgs.fromBundle(arguments!!).artItem
+        val art = ImageItemFragmentArgs.fromBundle(
+            arguments!!
+        ).artItem
         title.text = art.title
         Glide.with(this)
             .load(art.imageUrl)
@@ -39,7 +42,7 @@ class ImageItemFragment : Fragment() {
                     target: Target<Drawable>?,
                     isFirstResource: Boolean
                 ): Boolean {
-                    description.text = "load failed :("
+                    description.text = getString(R.string.loading_error)
                     description_title.visibility = View.GONE
                     return false
                 }

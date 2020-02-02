@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Lynlissa art</string>
+
+    <string name="gallery_fragment_name">Lynlissa art gallery</string>
+    <string name="art_fragment_name">Lynlissa art</string>
+
+    <string name="loading_error">load failed :(</string>
+    <string name="description">Description:</string>
 </resources>
