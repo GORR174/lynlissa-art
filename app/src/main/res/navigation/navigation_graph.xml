@@ -24,4 +24,9 @@
             android:name="artItem"
             app:argType="ru.catstack.lynlissaart.domain.Art" />
     </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="ru.catstack.lynlissaart.ui.about.AboutFragment"
+        android:label="@string/about_fragment_title"
+        tools:layout="@layout/about_fragment" />
 </navigation>

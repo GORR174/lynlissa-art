@@ -6,6 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import kotlinx.android.synthetic.main.main_activity.*
+import ru.catstack.lynlissaart.ui.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         navController = navHostFragment.findNavController()
         NavigationUI.setupActionBarWithNavController(this, navController)
+        MainFragment.saveView = null
     }
 
     override fun onSupportNavigateUp(): Boolean {

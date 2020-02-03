@@ -7,4 +7,13 @@
     <string name="loading_error">Loading failed :(\nCheck your internet connection.</string>
     <string name="retry_button">Retry</string>
     <string name="description">Description:</string>
+
+    <string name="about_artist_button">About Lynlissa</string>
+    <string name="about_fragment_title">About</string>
+    <string name="about_title">Lynlissa</string>
+    <string name="about_text">Lynlissa is an aspiring digital artist.</string>
+    <string name="about_application">
+        This is an unofficial app for her arts.\n
+        Please, follows her at:
+    </string>
 </resources>
