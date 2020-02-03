@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lynlissa art</string>
+
+    <string name="gallery_fragment_name">Lynlissa art gallery</string>
+    <string name="art_fragment_name">Lynlissa art</string>
+
+    <string name="loading_error">Ошибка при загрузке :(\nПроверьте ваше интернет соединение.</string>
+    <string name="retry_button">Обновить</string>
+    <string name="description">Описание:</string>
+
+    <string name="about_artist_button">О художнике</string>
+    <string name="about_fragment_title">О художнике</string>
+    <string name="about_title">Lynlissa</string>
+    <string name="about_text">Lynlissa - начинающий цифровой художник.</string>
+    <string name="about_application">
+"Это неофициальное приложение для её творчества.
+
+Пожалуйста, подпишитесь на Lynlissa в соц. сетях:"
+    </string>
+</resources>
