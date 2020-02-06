@@ -13,7 +13,8 @@
     <string name="about_title">Lynlissa</string>
     <string name="about_text">Lynlissa is an aspiring digital artist.</string>
     <string name="about_application">
-"This is an unofficial app for her arts.
+"This is an unique app for her arts.
 Please, follows her at:"
     </string>
+    <string name="artstation_name" translatable="false">ArtStation</string>
 </resources>

@@ -38,6 +38,10 @@ class AboutFragment : Fragment() {
         twitterButton.setOnClickListener {
             openLink("https://twitter.com/Hurrrsky")
         }
+
+        artstationButton.setOnClickListener {
+            openLink("https://www.artstation.com/lynlissa")
+        }
     }
 
     private fun openLink(url: String) {
