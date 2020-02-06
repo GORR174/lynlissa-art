@@ -1,11 +1,13 @@
 package ru.catstack.lynlissaart.ui.item
 
 import android.content.pm.ActivityInfo
+import android.content.res.Configuration
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -65,6 +67,14 @@ class ImageItemFragment : Fragment() {
 
             })
             .into(imageView)
+        imageView.setOnClickListener {
+            findNavController().navigate(ImageItemFragmentDirections.actionImageItemFragmentToPhotoViewFragment(art.imageUrl))
+        }
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        parentFragmentManager.beginTransaction().detach(this).attach(this).commit()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

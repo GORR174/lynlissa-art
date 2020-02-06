@@ -1,7 +1,8 @@
 package ru.catstack.lynlissaart
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -21,5 +22,22 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp()
+    }
+
+    fun hideBar() {
+        supportActionBar?.hide()
+        window.decorView.apply {
+            systemUiVisibility = (View.SYSTEM_UI_FLAG_FULLSCREEN
+                    or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                    or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
+        }
+    }
+
+    fun showBar() {
+        supportActionBar?.show()
+        window.decorView.apply {
+            systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
+        }
     }
 }

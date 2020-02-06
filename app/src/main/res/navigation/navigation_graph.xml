@@ -23,10 +23,22 @@
         <argument
             android:name="artItem"
             app:argType="ru.catstack.lynlissaart.domain.Art" />
+        <action
+            android:id="@+id/action_imageItemFragment_to_photoViewFragment"
+            app:destination="@id/photoViewFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
         android:name="ru.catstack.lynlissaart.ui.about.AboutFragment"
         android:label="@string/about_fragment_title"
         tools:layout="@layout/about_fragment" />
+    <fragment
+        android:id="@+id/photoViewFragment"
+        android:name="ru.catstack.lynlissaart.ui.item.photoview.PhotoViewFragment"
+        android:label="photo_view_fragment"
+        tools:layout="@layout/photo_view_fragment" >
+        <argument
+            android:name="imageUrl"
+            app:argType="string" />
+    </fragment>
 </navigation>
